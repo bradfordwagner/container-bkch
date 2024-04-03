@@ -6,7 +6,7 @@
         gri_installs:
           - repo: bradfordwagner/go-cli-buildkit-ch
             binary_name: bkch
-            tag: 0.1.1
+            tag: 0.2.0-beta1
   tasks:
     - name: check binaries installed
       include_tasks: ./tests/check_output.yml
