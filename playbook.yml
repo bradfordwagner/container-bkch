@@ -1,7 +1,16 @@
 ---
 - hosts: localhost
-  vars:
-    jq_ver: 1.6
   roles:
-    - role: andrewrothstein.jq
-
+    - role: bradfordwagner.go-releaser-install
+      vars:
+        gri_installs:
+          - repo: bradfordwagner/go-cli-buildkit-ch
+            binary_name: bkch
+            tag: 0.1.1
+  tasks:
+    - name: check binaries installed
+      include_tasks: ./tests/check_output.yml
+      loop_control:
+        loop_var: item
+      loop:
+        - /usr/local/bin/bkch -h
